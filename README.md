@@ -70,7 +70,7 @@ Followed by running our agent:
 tiny-agents run ./browser-agent
 ```
 
-![Hugging Face MCP Settings page](assets/init-browser.png)
+![CLI Init Browser](assets/init-browser.png)
 
 When the agent starts, you can chat with it to ask him to solve tasks. For example, try to ask it to find the top 10 Hugging Face models, and see if it's able to connect to the website using the Playwright MCP tool we configured!
 
