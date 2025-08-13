@@ -85,7 +85,7 @@ Voila, you now have a capable browser agent with you!
 
 ## **Example**: Accessing Hugging Face MCP Servers
 
-Let's take it up a notch and give more creative freedom to our AI Agent, cue, Hugging Face MCP Server. The HF MCP server allows you to not only interact with the HF Hub but also with 1000s of AI spaces on [hf.co/spaces](https://hf.co/spaces). 
+Let's take it up a notch and give more creative freedom to our AI Agent, cue, [Hugging Face MCP Server](https://hf.co/mcp). The HF MCP server allows you to not only interact with the HF Hub but also with 1000s of AI spaces on [hf.co/spaces](https://hf.co/spaces). 
 
 Let's get it set up!
 
@@ -96,6 +96,9 @@ Head over to [hf.co/mcp](https://hf.co/mcp) and add the spaces/ demo that you wa
 ![Hugging Face MCP Settings page](assets/hf-mcp.png)
 
 For example, I've added the following space 
+
+1. [evalstate/FLUX.1-Krea-dev](https://huggingface.co/spaces/evalstate/FLUX.1-Krea-dev) - a popular aesthetic text to image model by Black Forest Labs
+2. [DVe0UTvm4/ltx-video-distilled](https://huggingface.co/spaces/DVe0UTvm4/ltx-video-distilled) - a popular image/ text to video by Lightricks
 
 Next, let's update our `agent.json`:
 
