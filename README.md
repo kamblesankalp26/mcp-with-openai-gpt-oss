@@ -147,6 +147,6 @@ tiny-agents run ./hf-mcp-server
 > npx @huggingface/tiny-agents run ./hf-mcp-server
 > ```
 
-![Hugging Face MCP Settings page](assets/output-hf-server.png)
+[![Watch the demo video](https://img.youtube.com/vi/OEaPk3FoK7M/0.jpg)](https://youtu.be/OEaPk3FoK7M)
 
 That's it! What would you build next with it?
