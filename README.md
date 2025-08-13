@@ -34,10 +34,8 @@ Let's define our agent using OpenAI's latest `gpt-oss` 120B as the LLM and conne
 	"servers": [
 		{
 			"type": "stdio",
-			"config": {
-				"command": "npx",
-				"args": ["@playwright/mcp@latest"]
-			}
+			"command": "npx",
+			"args": ["@playwright/mcp@latest"]
 		}
 	]
 }
@@ -108,11 +106,9 @@ Next, let's update our `agent.json`:
 	"servers": [
 		{
 			"type": "http",
-			"config": {
-				"url": "https://huggingface.co/mcp",
-                "headers": {
-                    "Authorization": "Bearer <HF_TOKEN>"
-                  }
+			"url": "https://huggingface.co/mcp",
+			"headers": {
+				"Authorization": "Bearer <HF_TOKEN>"
 			}
 		}
 	]
