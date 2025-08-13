@@ -79,7 +79,7 @@ When the agent starts, you can chat with it to ask him to solve tasks. For examp
 > npx @huggingface/tiny-agents run ./browser-agent
 > ```
 
-![Hugging Face MCP Settings page](assets/output-browser-agent.png)
+[![Browser Agent Demo](https://img.youtube.com/vi/zxlKwOd4VOk/0.jpg)](https://youtu.be/zxlKwOd4VOk)
 
 Voila, you now have a capable browser agent with you!
 
