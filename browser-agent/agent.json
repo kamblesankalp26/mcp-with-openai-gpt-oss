@@ -1,0 +1,13 @@
+{
+	"model": "openai/gpt-oss-120b",
+	"provider": "fireworks-ai",
+	"servers": [
+		{
+			"type": "stdio",
+			"config": {
+				"command": "npx",
+				"args": ["@playwright/mcp@latest"]
+			}
+		}
+	]
+}

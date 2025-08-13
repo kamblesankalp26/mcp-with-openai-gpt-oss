@@ -104,7 +104,7 @@ Next, let's update our `agent.json`:
 ```json
 {
 	"model": "openai/gpt-oss-120b",
-	"provider": "groq",
+	"provider": "fireworks-ai",
 	"servers": [
 		{
 			"type": "http",
