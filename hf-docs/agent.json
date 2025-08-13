@@ -12,7 +12,7 @@
 	"servers": [
 		{
 			"type": "http",
-			"url": "https://huggingface.co/mcp",
+			"url": "https://huggingface.co/mcp?bouquet=docs",
 			"headers":
 			{
 				"Authorization": "Bearer ${input:hf-token}"
