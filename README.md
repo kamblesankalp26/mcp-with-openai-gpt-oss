@@ -103,12 +103,26 @@ Next, let's update our `agent.json`:
 {
 	"model": "openai/gpt-oss-120b",
 	"provider": "fireworks-ai",
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "hf-token",
+			"description": "Your Hugging Face Token",
+			"password": true
+		}
+	],
 	"servers": [
 		{
-			"type": "http",
-			"url": "https://huggingface.co/mcp",
-			"headers": {
-				"Authorization": "Bearer <HF_TOKEN>"
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+			"mcp-remote",
+			"https://huggingface.co/mcp",
+			"--header",
+			"Authorization: Bearer ${HF_TOKEN}"
+			],
+			"env": {
+				"HF_TOKEN": "${input:hf-token}"
 			}
 		}
 	]
