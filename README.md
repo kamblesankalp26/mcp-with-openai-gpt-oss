@@ -98,7 +98,7 @@ Head over to [hf.co/mcp](https://hf.co/mcp) and add the spaces/ demo that you wa
 For example, I've added the following space 
 
 1. [evalstate/FLUX.1-Krea-dev](https://huggingface.co/spaces/evalstate/FLUX.1-Krea-dev) - a popular aesthetic text to image model by Black Forest Labs
-2. [DVe0UTvm4/ltx-video-distilled](https://huggingface.co/spaces/DVe0UTvm4/ltx-video-distilled) - a popular image/ text to video by Lightricks
+2. [evalstate/ltx-video-distilled](https://huggingface.co/spaces/evalstate/ltx-video-distilled) - a popular image/ text to video by Lightricks
 
 Next, let's update our `agent.json`:
 
@@ -116,19 +116,14 @@ Next, let's update our `agent.json`:
 	],
 	"servers": [
 		{
-			"type": "stdio",
-			"command": "npx",
-			"args": [
-			"mcp-remote",
-			"https://huggingface.co/mcp",
-			"--header",
-			"Authorization: Bearer ${HF_TOKEN}"
-			],
-			"env": {
-				"HF_TOKEN": "${input:hf-token}"
+			"type": "http",
+			"url": "https://huggingface.co/mcp",
+			"headers":
+			{
+				"Authorization": "Bearer ${input:hf-token}"
 			}
 		}
-	]
+	]	
 }
 ```
 
